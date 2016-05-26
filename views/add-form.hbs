@@ -1,0 +1,30 @@
+<html>
+<head>
+    <link rel="stylesheet" href="/public/main.css" />
+</head>
+<body>
+<a href="/">Back to home</a>
+<h1>
+    Add new article
+</h1>
+
+{{#confirmation}}
+    Thank you. we add new article
+{{/confirmation}}
+
+<form method="POST">
+    <label>
+        title
+        <input name="name" value="{{name}}" >
+    </label>
+
+    <label>
+        body
+        <textarea name="body">{{body}}</textarea>
+    </label>
+
+    <input type="submit" value="add" />
+</form>
+
+</body>
+</html>

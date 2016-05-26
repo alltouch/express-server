@@ -41,17 +41,26 @@ module.exports = function (app) {
         res.render('item.hbs', {
             date: new Date().toString(),
             title: xxx[0].title,
-            body: 'This is big body'
+            body: xxx[0].body
         });
     });
 
-    /*app.get('/new2', function (req, res) {
-     res.render('item.hbs', {
-     date: new Date().toString(),
-     title: 'This is second post',
-     body: 'lorem ipsum fjsdhgdsghsdjgdhgkjdsgksdhgdskjg'
-     });
-     });*/
+    app.get('/add', function (req, res) {
+       res.render('add-form.hbs'); 
+    });
+
+    app.post('/add', function (req, res) {
+        articles.push({
+            id: 'new' + Date.now(),
+            title: req.body.name,
+            body: req.body.body
+        });
+        res.render('add-form.hbs', {
+            //confirmation: true,
+            name: req.body.name,
+            body: req.body.body
+        });
+    });
 
     app.post('/form-submit', function (req, res) {
         var name = req.body.name;
