@@ -62,13 +62,12 @@ module.exports = function (app) {
         });
     });
 
-    app.post('/form-submit', function (req, res) {
-        var name = req.body.name;
-        lines.push(name);
-        res.render('index.hbs', {
-            title: 'thanks ' + name,
-            lines: lines
-        });
+    app.get('/ajax-html', function (req, res) {
+       res.json({
+           a: 1,
+           b: 2,
+           c: 3
+       });
     });
 
 };
