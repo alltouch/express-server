@@ -4,17 +4,15 @@
 </head>
 <body>
     <h1>
-        this is index template file
+        {{title}}
     </h1>
 
-    {{title}}
-    <form method="post" action="/form-submit">
-        <input name="name" value="{{name}}">
-        <input type="submit" value="click me" />
-    </form>
-    <br />
-    {{#lines}}
-        - {{.}} <br/>
-    {{/lines}}
+
+
+    {{#articles}}
+        <div class="item">
+            <a href="/{{id}}">{{title}}</a>
+        </div>
+    {{/articles}}
 </body>
 </html>
